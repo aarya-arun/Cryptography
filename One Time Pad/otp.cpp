@@ -12,14 +12,18 @@ using namespace std;
 
 int len;
 
+//encryption function
 void encrypt(BYTE text[], BYTE key[])
 {
+    
+    //bitwise XOR
     for(int i=0; i<len; i++)
     { text[i]^=key[i];}
 
    
     int p[10000];
 
+   //displaying the ciphertext in readable format
    for(int i=0; i<len; i++)
    { p[i]=text[i] + 33;}
 
@@ -33,18 +37,23 @@ void encrypt(BYTE text[], BYTE key[])
 }
 
 
+//decrypt function
 void decrypt(BYTE text[], BYTE key[])
 {
 
+    //as we previously added 33 to ensure readability, we subtract 33
     for(int i=0; i<len; i++)
     { text[i]=text[i]-33;}
 
+    
+    //bitwise XOR
     for(int i=0; i<len; i++)
     { text[i]^=key[i];}
 
    
     int p[10000];
 
+    //priting the decrypted text in readable format
    for(int i=0; i<len; i++)
    { p[i]=text[i];}
 
